@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Input from '../components/Input'
-import Todo from '../components/Todo'
+import Login from '../components/Login'
 
 export default function Home() {
   return (
@@ -9,8 +9,7 @@ export default function Home() {
         <title>Todo App</title>
       </Head>
 
-      <Input />
-      
+      <Login />
     </div>
   )
 }
