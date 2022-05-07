@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     items: [],
+    text: ""
   }
 
 export const todoSlice = createSlice({
@@ -27,11 +28,22 @@ export const todoSlice = createSlice({
         }     
         state.items = newTodo;
     },
+    setCheck: (state, action) => {
+      state.items.map((item) => {
+        if(action.payload === item.id){
+          if(item.done === true){
+            item.done = false
+          }else{
+            item.done = true
+          }
+        }
+      })
+    }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const {addtoTodo, deleteTodo} = todoSlice.actions;
+export const {addtoTodo, deleteTodo, setCheck} = todoSlice.actions;
 
 //selectors
 export const selectItems = (state) => state.todo.items;
