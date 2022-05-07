@@ -72,7 +72,8 @@ const Input = () => {
     }
 
   return (
-        <section className='md:mx-auto px-1  w-[100%] relative h-[100vh]'>
+        <section className='md:mx-auto px-1  w-[100%] relative h-[100vh] border'>
+          <div className='m-2 text-black absolute right-0 top-0  max-w-fit '>Number of todos:  <span className='bg-red-600 p-2 rounded-full text-white'>{items.length}</span></div>
             <form className='mx-auto mt-[50px] w-[97%] md:w-[70%]' action="" onSubmit={addToTodo}>
                   {!error && <div className='bg-red-600 max-w-fit mb-2 rounded-full px-2 text-white'>Please type your todos....</div> }
                  <div className='flex border border-red-700 rounded-xl overflow-hidden'>
@@ -84,7 +85,7 @@ const Input = () => {
             {message&&<div className='bg-red-300 px-1 text-center rounded-xl opacity-30 text-2xl w-[97%] md:w-[70%] p-4 absolute left-[50%] top-[50%] translate-y-[-50%] translate-x-[-50%]'>{message}</div>}
             
             <div className='mt-[40px] md:mt-[100px]'><Todo /></div>
-            <div className='m-4 text-black absolute right-0 top-0 md:left-0 md:top-0  max-w-fit '>Number of todos:  <span className='bg-red-600 p-2 rounded-full text-white'>{items.length}</span></div>
+            
     </section>
   )
 }
