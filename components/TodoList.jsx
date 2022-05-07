@@ -24,10 +24,10 @@ const TodoList = ({name, done, id, min}) => {
     <div className='mx-auto h-fit w-[97%] md:w-[70%]'>
         <div className='h-fit flex items-center justify-between bg-red-200 my-1 md:my-2 p-2 md:p-4 text-xl md:text-2xl rounded-2xl shadow-lg'>
            
-            <p className={done && `line-through decoration-red-700`}>{name}</p>
+            <p className={done && `line-through decoration-red-800 text-purple-700`}>{name}</p>
         <div className='flex items-center'>
-            <div onClick={handleCheck} className="mr-2"><AiFillCheckCircle className={!done ? `fill-red-700 h-8 w-8 text-2xl` : `fill-green-500 h-8 w-8 text-2xl`}/></div>
-                <div onClick={handleDelete} className='rounded-full bg-black p-2'>
+            <div onClick={handleCheck} className="mr-2"><AiFillCheckCircle className={!done ? `fill-red-700 h-8 w-8 cursor-pointer text-2xl` : `fill-green-700 h-8 w-8 cursor-pointer text-2xl`}/></div>
+                <div onClick={handleDelete} className='rounded-full cursor-pointer bg-black p-2'>
                 <AiFillDelete className='h-7 w-7 fill-red-800'/>
                 </div>
             </div>
