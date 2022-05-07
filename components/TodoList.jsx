@@ -11,8 +11,14 @@ const TodoList = ({name, done, id, min}) => {
 
             //handle Delete 
         const handleDelete = () => {
-            dispatch(deleteTodo({id}))
-            window.alert('Are you sure want to delete this task');
+            let text = "Are you sure you want to delete"
+            if(confirm(text)==true){
+                dispatch(deleteTodo({id}))
+            }else{
+                false
+            }
+            
+           
         }
 
         //Handle check
