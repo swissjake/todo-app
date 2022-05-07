@@ -9,11 +9,13 @@ const TodoList = ({name, done, id, min}) => {
         const dispatch = useDispatch()
         const handleDelete = () => {
             dispatch(deleteTodo({id}))
+            window.alert('Are you sure want to delete this task');
         }
 
   return (
     <div className='mx-auto h-fit w-[97%] md:w-[70%]'>
         <div className='h-fit flex items-center justify-between bg-red-200 my-1 md:my-2 p-2 md:p-4 text-xl md:text-2xl rounded-2xl shadow-lg'>
+           
             <p className='break-all'>{name}</p>
             <div onClick={handleDelete} className='rounded-full bg-black p-2'>
             <AiFillDelete className='h-7 w-7 fill-red-800'/>
