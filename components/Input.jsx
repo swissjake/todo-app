@@ -72,11 +72,11 @@ const Input = () => {
     }
 
   return (
-        <section className='md:mx-auto px-1  w-[100%] relative border border-red-700 h-[100vh]'>
+        <section className='md:mx-auto px-1  w-[100%] relative h-[100vh]'>
             <form className='mx-auto mt-[50px] w-[97%] md:w-[70%]' action="" onSubmit={addToTodo}>
                   {!error && <div className='bg-red-600 max-w-fit mb-2 rounded-full px-2 text-white'>Please type your todos....</div> }
                  <div className='flex border border-red-700 rounded-xl overflow-hidden'>
-                    <input className='capitalize flex-grow py-2 px-4 md:text-2xl outline-none' value={input} type="text" placeholder='Type Here' onChange={(e) => setInput(e.target.value)}/>
+                    <input className='flex-grow py-2 px-4 md:text-2xl outline-none' value={input.charAt(0).toUpperCase() + input.substring(1).toLowerCase()} type="text" placeholder='Type Here' onChange={(e) => setInput(e.target.value)}/>
                     <button disabled={formInput} type='submit' className={`bg-red-800 py-2 px-4 md:py-3 md:px-8 text-white cursor-pointer`}>Add</button>
                 </div>
                

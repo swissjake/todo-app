@@ -2,23 +2,34 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import {AiFillDelete} from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
-import {deleteTodo, selectItems } from '../slice/todo'
+import {deleteTodo, selectItems, setCheck } from '../slice/todo'
+import {AiFillCheckCircle} from 'react-icons/ai'
 
 const TodoList = ({name, done, id, min}) => {
         const items = useSelector(selectItems)
         const dispatch = useDispatch()
+
+            //handle Delete 
         const handleDelete = () => {
             dispatch(deleteTodo({id}))
             window.alert('Are you sure want to delete this task');
+        }
+
+        //Handle check
+        const handleCheck = () => {
+            dispatch(setCheck(id))
         }
 
   return (
     <div className='mx-auto h-fit w-[97%] md:w-[70%]'>
         <div className='h-fit flex items-center justify-between bg-red-200 my-1 md:my-2 p-2 md:p-4 text-xl md:text-2xl rounded-2xl shadow-lg'>
            
-            <p className='break-all'>{name}</p>
-            <div onClick={handleDelete} className='rounded-full bg-black p-2'>
-            <AiFillDelete className='h-7 w-7 fill-red-800'/>
+            <p className={done && `line-through decoration-red-700`}>{name}</p>
+        <div className='flex items-center'>
+            <div onClick={handleCheck} className="mr-2"><AiFillCheckCircle className={!done ? `fill-red-700 h-8 w-8 text-2xl` : `fill-green-500 h-8 w-8 text-2xl`}/></div>
+                <div onClick={handleDelete} className='rounded-full bg-black p-2'>
+                <AiFillDelete className='h-7 w-7 fill-red-800'/>
+                </div>
             </div>
         </div>
         <div className='flex items-center justify-end mb-3'>
